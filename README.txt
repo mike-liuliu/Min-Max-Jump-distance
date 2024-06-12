@@ -32,7 +32,7 @@ License of new data: Creative Commons Attribution 4.0 International
   year={2023}
 }
 
-7. The "multiple_label_145.p" and "mmj_distance_matrix_precomputed.zip" files are larger than 100MB, so they are stored on Git Large File Storage (LFS), readers may need to download it manually.
+7. The "multiple_label_145.p" and "mmj_distance_matrix_precomputed.zip" files are larger than 100MB, so they are stored on Git Large File Storage (LFS), readers may need to download it separately.
 
 8. The whole repository (about 1.2G in total) can be downloaded from google drive.
 URL:

@@ -396,7 +396,7 @@ def plot_first_n_label_by_index(one_data_index_list, multiple_labels, X, true_la
         adjusted_rand_gra = np.round(adjusted_rand_gra, 3)
  
         scorr2 = np.sort(one_data_index_list)[tt]
-        scorr2 = np.round(scorr2, 2)
+        scorr2 = np.round(scorr2, 5)
         if not smaller_better:
             scorr2 = - scorr2
         if b == 2:

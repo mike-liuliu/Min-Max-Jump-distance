@@ -14,7 +14,7 @@ See: https://analyticsarora.com/k-means-for-beginners-how-to-build-from-scratch-
     
     return the_index_value
 
-then call the index_plot_first_n_label_one_data function.
+then call the index_plot_first_n_label_one_data function. Note the "smaller_better" hyper-parameter.
 
 4. To use precomputed mmj distance matrix, readers should download and unzip the "mmj_distance_matrix_precomputed.zip" file firstly.
 

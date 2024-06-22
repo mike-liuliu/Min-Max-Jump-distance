@@ -85,7 +85,7 @@ def cal_mmj_matrix_algo_1(distance_matrix):
 
 
 def KMeans_several_times_ambi_points_multi_one_scom(X, k, times, distance_matrix):
-    loss = np.Inf
+    loss = np.inf
     for kk in range(times):  
         temp_cluster_idx, temp_centers, temp_loss, temp_strong_ambi_p_idx , temp_weak_ambi_p_idx= K_means_ambi_points_multi_one_scom()(X, k, distance_matrix)
         if temp_loss < loss:
@@ -125,7 +125,7 @@ class K_means_ambi_points_multi_one_scom():
         label = np.empty([row])
  
         distances = self.X_to_centers_dist(X, centers_idx)
-        distances = np.round_(distances,15)        
+        distances = np.round(distances,15)        
         n_clusters = len(centers_idx)  
         strong_ambi_p_idx = []
         weak_ambi_p_idx = []

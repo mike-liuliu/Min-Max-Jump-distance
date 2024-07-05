@@ -1,7 +1,7 @@
 0. This is the source code of the paper "Min-Max-Jump distance and its applications."
 
 1. Implementation of MMJ-SC, MMJ-CH, and MMJ-DB are based on the source code of the scikit-learn project.
-Implementation of the Kmeans Class is based on the source code provided by Avi Arora in a tutorial artical.
+Implementation of the K_means_ambi_points_multi_one_scom Class is based on the source code provided by Avi Arora in a tutorial artical.
 See: https://analyticsarora.com/k-means-for-beginners-how-to-build-from-scratch-in-python/
 
 2. In function index_plot_first_n_label_one_data, if the index's score is "smaller is better", then the "smaller_better" hyper-parameter should be set to True. Otherwise, if the index's score is "larger is better", then the "smaller_better" hyper-parameter should be set to False.

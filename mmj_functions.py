@@ -12,6 +12,8 @@ import ctypes
 # from IPython.display import clear_output
 from sklearn import metrics
 from cdbw import CDbw
+
+from funcs.algo_4_funcs import cal_mmj_matrix_by_algo_4_Calculation_and_Copy 
 # from VIASCKDE_funcs import VIASCKDE
 
 def cal_VIASCKDE(X, label):
@@ -70,12 +72,15 @@ def update_mmj_ij(distance_matrix, mmj_matrix, n, i,j):
     m2 = np.max((mmj_matrix[i,n],mmj_matrix[n,j]))
     return np.min((m1,m2))
 
-def cal_mmj_matrix_algo_1(distance_matrix):
-    lenX = len(distance_matrix)
+def cal_mmj_matrix_algo_1_python(X, round_n = 15):
+    
+    distance_matrix = pairwise_distances(X)
+    distance_matrix = np.round(distance_matrix, round_n)
+
+    lenX = len(X)
    
     mmj_matrix = np.zeros((lenX,lenX))
-    
-    
+
     mmj_matrix[0,1] = distance_matrix[0,1]
     mmj_matrix[1,0] = distance_matrix[1,0]
  
@@ -277,8 +282,13 @@ def got_X_divide_from_labels(X, labels):
 def test_mmj_kmeans_multi_one_scom(data_id, datasets, datasets_true_K, attempts = 20):
     X = datasets[data_id] 
     num_clusters = datasets_true_K[data_id]
-    # num_clusters = 5 
-    mmj_matrix = pickle.load( open( f"./mmj_distance_matrix_precomputed/mmj_r_data_{data_id}.p", "rb" ) ) 
+
+    # mmj_matrix = pickle.load( open( f"./mmj_distance_matrix_precomputed/mmj_r_data_{data_id}.p", "rb" ) ) 
+
+    # Calculate MMJ distance matrix with Algorithm 4, implementation and testing of Algorithm 4 see another paper:
+    # http://www.arxiv.org/abs/2407.07058
+    mmj_matrix =  cal_mmj_matrix_by_algo_4_Calculation_and_Copy(X) 
+
     label, centers_idx, loss, strong_ambi_p_idx, weak_ambi_p_idx = KMeans_several_times_ambi_points_multi_one_scom(X, num_clusters, attempts, mmj_matrix)
  
  

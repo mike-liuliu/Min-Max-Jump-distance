@@ -207,18 +207,26 @@ class K_means_ambi_points_multi_one_scom():
                 pass
         return label, centers_idx, loss, strong_ambi_p_idx, weak_ambi_p_idx
 
+
 def len_centers_idx(centers_idx):
         
-    K = len(centers_idx)
-    qq = K
-    ppp = [set(centers_idx[ii]) for ii in range(K)]
+    P = len(centers_idx)
+ 
+    ppp = [set(centers_idx[ii]) for ii in range(P)]
     
-    for i in range(K):
-        for j in range(K):
+    dup_l = []
+    
+    for i in range(P):
+        for j in range(P):
             if i < j:
                 if ppp[j] == ppp[i]:
-                    qq -= 1
-    return qq  
+                    dup_l.append(j)             
+    dup_l = list(set(dup_l))
+    kkk = [ii for ii in range(P) if ii not in dup_l]
+
+    return len(kkk) 
+
+
 def random_select_from_equal(distances_kk):
 #     assert len(set(distances_kk)) < len(distances_kk), "len(set(distances_kk)) < len(distances_kk)"
     minnn = min(distances_kk)

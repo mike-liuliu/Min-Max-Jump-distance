@@ -12,6 +12,7 @@ import ctypes
 # from IPython.display import clear_output
 from sklearn import metrics
 from cdbw import CDbw
+import kmedoids
 
 from funcs.algo_4_funcs import cal_mmj_matrix_by_algo_4_Calculation_and_Copy 
 # from VIASCKDE_funcs import VIASCKDE
@@ -554,3 +555,31 @@ def pairwise_dist_from_id(X_id, centroid_id, mmj_matrix):
             dists[i,j] = mmj_matrix[p,q]
 
     return dists
+
+
+def MMJ_K_means_using_PAM_algo(X, num_clusters, mmj_matrix, plot = False): 
+    
+    km_model = kmedoids.fasterpam(mmj_matrix, num_clusters)
+   
+    label = km_model.labels
+    centers_idx = [[ii] for ii in km_model.medoids]
+ 
+    dis_to_medoids = np.array([[mmj_matrix[i,j] for j in km_model.medoids] for i in range(len(X))])
+    min_dis_to_medoids = np.min(dis_to_medoids, axis = 1)
+
+    strong_ambi_p_idx, weak_ambi_p_idx = [], []
+    for i, _ in enumerate(dis_to_medoids):   
+        ppp = np.sum(dis_to_medoids[i] == min_dis_to_medoids[i])
+        if  ppp == 1:
+            pass      
+        elif ppp == num_clusters:
+            strong_ambi_p_idx.append(i)      
+        else:
+            weak_ambi_p_idx.append(i)
+    if plot: 
+        if strong_ambi_p_idx or weak_ambi_p_idx:
+            plot_2D_or_3D_data_empty_circles_weak_strong_multi_one_scom(X, label,centers_idx, strong_ambi_p_idx, weak_ambi_p_idx)        
+        else:
+            plot_2D_or_3D_data(X, label, centers_idx = centers_idx, plot_center = 1)
+        
+    return [label, strong_ambi_p_idx, weak_ambi_p_idx, centers_idx]

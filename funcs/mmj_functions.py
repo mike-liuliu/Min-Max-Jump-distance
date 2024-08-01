@@ -3,29 +3,18 @@ import matplotlib.pyplot as plt
 import numpy as np
 import random
 from sklearn.metrics.cluster import adjusted_rand_score
-# from scipy.special import softmax
+ 
 import os
 from ctypes import cdll, c_char_p
 import numpy.ctypeslib as ctl
 from sklearn.metrics import pairwise_distances
 import ctypes
-# from IPython.display import clear_output
+ 
 from sklearn import metrics
 from cdbw import CDbw
 import kmedoids
-
-from funcs.algo_4_funcs import cal_mmj_matrix_by_algo_4_Calculation_and_Copy 
-# from VIASCKDE_funcs import VIASCKDE
-
-def cal_VIASCKDE(X, label):
-    kkk = VIASCKDE(X, label)
-    if kkk is np.nan:
-        return -np.inf
-    else:
-        return kkk
-
-
-
+ 
+ 
 def cal_mmj_matrix_cpp_round_n(X, n = 15):
     distance_matrix = pairwise_distances(X)
  

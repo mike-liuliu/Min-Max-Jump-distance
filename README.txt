@@ -16,14 +16,12 @@ See: https://analyticsarora.com/k-means-for-beginners-how-to-build-from-scratch-
 
 then call the index_plot_first_n_label_one_data function. Note the "smaller_better" hyper-parameter.
 
-4. To use precomputed mmj distance matrix, readers should download and unzip the "mmj_distance_matrix_precomputed.zip" file firstly.
-
-5. License.
+4. License.
    
 License of the source code : Apache License, Version 2.0
 License of new data: Creative Commons Attribution 4.0 International
 
-6. Citation:
+5. Citation:
 
 @article{liu2023min,
   title={Min-Max-Jump distance and its applications},
@@ -32,9 +30,13 @@ License of new data: Creative Commons Attribution 4.0 International
   year={2023}
 }
 
-7. The "multiple_label_145.p" and "mmj_distance_matrix_precomputed.zip" files are larger than 100MB, so they are stored on Git Large File Storage (LFS), readers may need to download it separately.
+6. The "multiple_label_145.p" file is larger than 100MB, so it is stored on Git Large File Storage (LFS), readers may need to download it separately.
 
-8.Sketch proof of the theorems and corollary in Section 3.3 ( Other properties of MMJ distance),  can be found in another paper, see https://openreview.net/forum?id=2BOb4SvDFr
+7. Performance of other clustering evaluation indices can be found at:
+https://github.com/mike-liuliu/gl_index
+
+8. Sketch proof of the theorems and corollary in Section 3.3 ( Other properties of MMJ distance),  can be found in another paper, see: 
+https://openreview.net/forum?id=2BOb4SvDFr
 
 
  

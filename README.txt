@@ -30,7 +30,7 @@ License of new data: Creative Commons Attribution 4.0 International
   year={2023}
 }
 
-6. The "multiple_label_145.p" file is larger than 100MB, so it is stored on Git Large File Storage (LFS), readers may need to download it separately.
+6. The "multiple_label_145.p" file is larger than 100MB, so it was compressed to make it smaller. Readers need to unzip the "multiple_label_145.p.zip" file in the "data" folder.
 
 7. Performance of other clustering evaluation indices can be found at:
 https://github.com/mike-liuliu/gl_index

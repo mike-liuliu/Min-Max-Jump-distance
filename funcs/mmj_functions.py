@@ -453,8 +453,21 @@ def index_plot_first_n_label_one_data(index_func, smaller_better, data_id, succe
     AR_best = plot_first_n_label_by_index(one_data_index_list, multiple_labels, X, true_label_position,smaller_better, succeeded_only)
     return AR_best 
 
+
+def normalize_label(label):
+    kk = set(label)
+    dic = {}
+    for i, uu in enumerate(kk):
+        dic[uu] = i
+    new_label = []
+    for tt in label:
+        new_label.append(dic[tt])
+    return np.array(new_label) 
+
 def mmj_calinski_harabasz_score(X, labels, ignor_less_than_n = 1):
     global dis_matrix
+
+    labels = normalize_label(labels)
  
     n_samples = len(X)
     n_labels = len(set(labels))
@@ -504,6 +517,8 @@ def mmj_Silhouette_coefficient(X, label, use_scikit = True):
 
 def mmj_davies_bouldin_score(X, labels):
     global dis_matrix
+
+    labels = normalize_label(labels)
  
     n_samples = len(X)
     n_labels = len(set(labels))
